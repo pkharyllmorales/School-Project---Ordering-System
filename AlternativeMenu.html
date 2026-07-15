@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400..700&family=Cedarville+Cursive&family=Courgette&family=Didact+Gothic&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Arabic:wght@100..900&family=Satisfy&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+     <title>Joel's Lemonade - Menu</title>
+     <style>
+
+         html {
+           scroll-behavior: smooth;
+         }
+
+         body {
+             height: 2500px;
+             min-width: auto;
+             background: radial-gradient(#FFED40, #e47200);
+             overflow-y: hidden; overflow-x: hidden;
+         }
+
+         .topnav {
+            height: 55px;
+            min-width: auto;
+            margin: -10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2.8px);
+            float: left;
+            position: fixed;
+            top: 1;
+        }
+
+        .nav {
+            height: 50px;
+            width: 700px;
+            align-items: center;
+            justify-content: space-around;
+            display: flex;
+            margin: 4px 0 0 10px;
+            position: fixed;
+            z-index: 1000;
+            top: 1;
+        }
+
+        .nav a {
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            border-bottom: 3px solid transparent;
+            font-family: "Tajawal", sans-serif;
+        }
+
+        .nav a:hover {
+            color: #D33D3A;
+            font-weight: bold;
+            transform: translateY(-5px);
+            transition: 0.25s;
+        }
+
+            .subnav {
+                display: flex; 
+                background-color: rgba(255, 255, 255, 0.5);
+                position: absolute;
+                top: 55px; 
+                width: 1780px;
+                height: 50px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                z-index: 500; 
+                justify-content: space-around; 
+                padding: 10px 0;
+                margin-left: 3px;
+                position: fixed;
+            }
+
+            .subnav a {
+                color: #D33D3A;
+                font-weight: bold;
+                padding: 1px 16px;
+                text-decoration: none;
+                display: block; 
+                text-align: center;
+                flex: 1;
+                font-family: "Tajawal", sans-serif;
+                font-size: 20px;
+                
+            }
+
+
+            .subnav a:hover {
+                color: #D33D3A;
+                font-weight: bold;
+                font-size: 25px;
+                transform: translateY(-5px);
+                transition: 0.25s;
+                height: 50px;
+                margin-top: -5px;
+                border-bottom: 1px solid rgb(173, 0, 0);
+            }
+
+                    .logo {
+                    height: 100px;
+                    width: 115px;
+                    margin-left: -10px;
+                    margin-top: 50px;
+                }
+
+                .cartnsearch-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 300px;
+                    height: 50px;
+                    position: relative;
+                    margin-left: 1550px;
+                    padding-top: 10px;
+                }
+
+                    * {
+                box-sizing: border-box;
+
+                }
+
+                .search-container {
+                    position: relative;
+                    width: fit-content;
+                    height: fit-content;
+                }
+
+                .input-search {
+                    border-style: none;
+                    padding: 10px;
+                    height: 45px;
+                    width: 0px;
+                    font-size: 18px;
+                    letter-spacing: 2px;
+                    background-color: transparent;
+                    outline: none;
+                    border-radius: 25px;
+                    color: #ffffff;
+                    transition: all 0.5s ease-in-out; 
+                    position: relative;
+                }
+
+                .input-search::placeholder {
+                    font-size: 18px;
+                    letter-spacing: 2px;
+                    font-weight: 100;
+                    color: rgb(255, 255, 255);
+                }
+
+                .btn-search {
+                    border-style: none;
+                    font-size: 18px;
+                    position: absolute;
+                    font-weight: bold;
+                    width: 50px;
+                    height: 50px;
+                    outline: none;
+                    cursor: pointer;
+                    left:0;
+                    color: #fffbfb;
+                    background-color: transparent;
+                    pointer-events: painted;
+                    margin-top: -2.5px;
+                }
+
+                .btn-search:hover{
+                    transform: translateY(-5px);
+                    transition: 0.25s;
+                    color: #ff5733;
+                }
+
+                .btn-search:focus ~ .input-search{
+                    border-radius: 0px;
+                    background-color: transparent;
+                    width: 200px; /* Expand the input field */
+                    border-bottom: 1px solid rgb(255, 255, 255);
+                    transform: translateX(-150px); /* Move the input field to the left */
+                    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+                        
+                }
+
+                .input-search:focus {
+                    border-radius: 0px;
+                    width: 200px;
+                    border-bottom: 1px solid rgb(255, 255, 255);
+                    background-color: transparent;
+                    transform: translateX(-150px); /* Move input field to the left */
+                    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+                }
+
+                .cart-link {
+                    text-decoration: none;
+                    transition: 0.25s;
+                    position: absolute; /* Ensures cart button stays in place */
+                    top: 17px; /* Adjust position as needed */
+                    right: 220px;
+                    color: white;
+                    
+                }
+
+                /* On hover, change color and scale */
+                .cart-link:hover {
+                    color: #ff5733;
+                    transform: translateY(-5px);
+                }
+
+                .user-link {
+                    text-decoration: none;
+                    transition: 0.25s;
+                    position: absolute; /* Ensures cart button stays in place */
+                    top: 18px; /* Adjust position as needed */
+                    right: 175px;
+                    color: white;
+                    cursor: pointer;
+                    
+                }
+
+                /* On hover, change color and scale */
+                .user-link:hover {
+                    color: #ff5733;
+                    transform: translateY(-5px);
+                }
+
+                 /* Content Section Styles */
+                .content-container {
+                    height: 500px;
+                    width: 250px;
+                    margin: 10px 0 0 -200px;
+                    padding: 10px;
+                    
+                }
+
+                .content-section {
+
+                    width: 1700px; 
+                    height: 800px;
+                    padding: 20px;
+                    margin-top: 20px;
+                    margin-left: -1450px;
+                    border-radius: 5px;
+                    box-sizing: border-box; 
+                    overflow-y: hidden; overflow-x: hidden;
+                }
+
+                .content-section {
+                    max-height: 800px; /* Maximum height, content can overflow */
+                    font-family: "Tajawal", sans-serif;
+                    font-size: 50px;
+                    text-align: left;
+                    color: #f8f8f8;
+                    font-weight: bold;
+                    width: 1800px;
+                    overflow: scroll;
+                    scroll-behavior: smooth;
+                    overflow-y: scroll; overflow-x: hidden;
+                    
+                }
+
+
+                .food-card-container {
+                    height: 400px;
+                    width: 1600px;
+                    margin-top: 10px;
+                    margin-left: -5px;
+                    display:grid;
+                    grid-template-columns: repeat(5, 1fr);
+
+                }
+
+
+                .food-card-container1 {
+                    height: 400px;
+                    width: 1600px;
+                    margin-top: 10px;
+                    margin-left: -5px;
+                    display:grid;
+                    grid-template-columns: repeat(5, 1fr);
+                }
+
+
+                .food-card-container1-title {
+                    font-size: 50px;
+                    text-align: left;
+                    color: #f8f8f8;
+                    font-weight: bold;
+                    padding-top: 100px;
+                }
+
+                .food-card-container2 {
+                    height: 400px;
+                    width: 1600px;
+                    margin-top: 700px;
+                    margin-left: -5px;
+                    display:grid;
+                    grid-template-columns: repeat(5, 1fr);
+                }
+
+
+                .food-card-container2-title {
+                    font-size: 50px;
+                    text-align: left;
+                    color: #f8f8f8;
+                    font-weight: bold;
+                    padding-top: 100px;
+                }
+
+                .food-card-container3 {
+                    height: 400px;
+                    width: 1600px;
+                    margin-top: 20px;
+                    margin-left: -5px;
+                    display:grid;
+                    grid-template-columns: repeat(5, 1fr);
+                }
+
+
+                .food-card-container3-title {
+                    font-size: 50px;
+                    text-align: left;
+                    color: #f8f8f8;
+                    font-weight: bold;
+                    margin-top: 800px;
+                }
+
+                .food-card-container4 {
+                    height: 400px;
+                    width: 1600px;
+                    margin-top: 20px;
+                    margin-left: -5px;
+                    display:grid;
+                    grid-template-columns: repeat(5, 1fr);
+
+                }
+
+
+                .food-card-container4-title {
+                    font-size: 50px;
+                    text-align: left;
+                    color: #f8f8f8;
+                    font-weight: bold;
+                    margin-top: 800px;
+                }
+
+                .food-card-container5 {
+                    height: 400px;
+                    width: 1600px;
+                    margin-top: 20px;
+                    margin-left: -5px;
+                    display:grid;
+                    grid-template-columns: repeat(5, 1fr);
+                }
+
+
+                .food-card-container5-title {
+                    font-size: 50px;
+                    text-align: left;
+                    color: #f8f8f8;
+                    font-weight: bold;
+                    margin-top: 450px;
+                }
+
+                .food-card-container6 {
+                    height: 420px;
+                    width: 1600px;
+                    margin-top: 20px;
+                    margin-left: -5px;
+                    display:grid;
+                    grid-template-columns: repeat(5, 1fr);
+                }
+
+
+                .food-card-container6-title {
+                    font-size: 50px;
+                    text-align: left;
+                    color: #f8f8f8;
+                    font-weight: bold;
+                    margin-top: 150px;
+                }
+
+                
+                
+                .food-card {
+                    width: 300px;
+                    height: 350px;
+                    border-radius: 20px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                    backdrop-filter: blur(2.8px); /* Initial background blur */
+                    margin-top: 10px;
+                    margin-left:10px ;
+                    padding: 10px;
+                    position: relative;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease;
+                }
+
+                .food-card:hover {
+                    transform: scale(1.05);
+                    background-color: rgba(255, 255, 255, 0.5);
+                    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
+                    backdrop-filter: blur(8px); 
+                }
+
+                .food-image {
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                .star-rating {
+                    text-align: left;
+                    margin-left: 20px;
+                    margin-top: 20px;
+                }
+
+                .checked {
+                    color: #D33D3A;
+                    font-size: 25px;
+                }
+
+                #food-name {
+                    font-size: 25px;
+                    font-weight: bolder;
+                    text-align: left;
+                    margin-left: 20px;
+                    margin-top: -10px;
+                    color: black;
+                }
+
+                #food-info {
+                    font-size: 15px;
+                    font-weight: 500;
+                    text-align: left;
+                    margin-left: 20px;
+                    color: black;
+                    margin-top: 1px;
+                }
+
+                #food-price {
+                    font-size: 18px;
+                    text-align: left;
+                    font-weight: 500;
+                    margin-left: 20px;
+                    color: black;
+                }
+
+                    .add-to-cart-btn {
+                    font-size: 15px;
+                    width: 100px;
+                    height: 30px;
+                    position: absolute;
+                    bottom: 7px;
+                    left: 67%;
+                    transform: translateX(-50%);
+                    padding: 10px 20px;
+                    background-color: rgba(0, 0, 0, 1);
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    opacity: 1;
+                    visibility: hidden;
+                    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+                    backdrop-filter: blur(8px); 
+                    padding: 0px;
+                }
+
+
+                .food-card:hover .add-to-cart-btn {
+                    opacity: 1;
+                    visibility: visible;
+                    transition: opacity 0.3s ease;
+                    cursor: pointer;
+                    backdrop-filter: blur(8px); 
+                }
+
+                .fa-heart {
+                    margin: -800px 0 0 250px;
+                    color: transparent; 
+                    opacity: 0; 
+                    transition: opacity 0.3s ease, color 0.3s ease; 
+                    color: white;
+                    position: absolute;
+                    bottom: 10px;
+                    left: 5%;
+                }
+
+
+                .food-card:hover .fa-heart {
+                    opacity: 1;
+                    cursor: pointer;
+                    color: rgb(255, 251, 251);
+                }
+
+                .food-card:hover .fa-heart:hover {
+                    color: #ff0000;
+                }
+
+                /* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+.upbtn-container {
+                    height: 50px;
+                    width: 1600px;
+                }
+
+.upbtn {
+    background-color: rgba(255, 255, 255, 0.5);
+                    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
+                    backdrop-filter: blur(8px);
+    height:50px;
+    width: 80px;
+    z-index: 50000px;
+    margin-top: -80px;
+    margin-left: 1500px;
+    cursor: pointer;
+    border-radius: 90px;
+    padding-top: 15px;
+    padding-bottom: 70px;
+    font-size: 90px;
+
+    
+}
+
+
+
+
+        </style>
+        </head>
+
+        
+        
+        <div class="topnav" id="topnav">
+            
+            <div class="nav"> 
+                <div class="logo"> 
+                    <div class="toggle"></div>
+                    <img src="Logo.png" alt="Joel's Lemonade Logo" style="height: 50px;">
+                </div>
+
+                <a href="LandingPage.html">Home</a>
+                
+                <a href="OrderPage.html">Order</a>
+                <a href="ContactPage.html">Contact</a>
+                <a href="#">Find Us</a>
+
+            </div>
+
+            <div class="cartnsearch-container">
+                <div class="search-container">
+                  <button class="btn-search">
+                      <i class="fas fa-search" style="font-size: 22px;"></i>
+                  </button>
+                  <input type="text" class="input-search" placeholder="Search...">
+                </div>
+  
+                <div class="card-container">
+                    
+                  <a href="#" class="cart-link" data-toggle="modal" data-target="#cart"><span class="total-count"></span>
+                    <i class="fa fa-shopping-cart" style="font-size: 25px;"></i>
+                </a>
+  
+                <div class="card-container">
+                  <a class="user-link">
+                    <i class="fa fa-user" style="font-size:25px" onclick="myFunction()"></i>
+                </a>
+                 </div>
+              </div>
+              </div>
+
+              
+
+            
+              
+        
+                <!-- Subnavigation -->
+                    <div class="subnav" id="subnav">
+                        <a href="#top">Top Picks</a>
+                        <a href="#sulit">Sulit Meal</a>
+                        <a href="#drinks">Drinks</a>
+                        <a href="#rice">Rice Bowl</a>
+                        <a href="#shawarma">Shawarma</a>
+                        <a href="#extra">Extras</a>
+
+
+                        <div id="content-container" class="content-container">
+                            <div id="deals-content" class="content-section">Top Picks, Tried and Loved!
+
+                                
+
+                                <div class="food-card-container" id="top">
+                                <div class="food-card" id="toptop">
+                                        <img src="fries.png" alt="Sausage" style="height: 130px;">
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name"> Fries </div>
+                                            <div id="food-info"> Regular  |  Large
+                                                 </div>
+                                            <div id="food-price"> ₱45  |  ₱55</div>
+
+
+                                            <button class="add-to-cart-btn">Add to Cart
+                                                <a href="#" data-name="Orange" data-price="0.5" class="add-to-cart btn btn-primary"></a>
+                                            </button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    <div class="food-card">
+                                        <img src="Lemon.png" alt="Sausage" 
+                                        style="
+                                        width: 250px; 
+                                        height: 250px;
+                                        margin-top: -25px;
+                                        margin-bottom: -95px;
+                                        margin-left: 30px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name"> Lemonade </div>
+                                            <div id="food-info"> Classic   |  Large</div>
+                                            <div id="food-price"> ₱40  |  ₱55</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    <div class="food-card">
+                                        <img src="LemonYakult.png" alt="Sausage" 
+                                        style="
+                                        width: 250px; 
+                                        height: 200px;
+                                        margin-top: 5px;
+                                        margin-bottom: -72px;
+                                        margin-left: 30px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name"> Lemonade with Yakult </div>
+                                            <div id="food-info"> Classic   |   Large</div>
+                                            <div id="food-price"> ₱55   |   ₱65</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    <div class="food-card">
+                                        <img src="LemonHoney.png" alt="Sausage" 
+                                        style="
+                                        width: 300px; 
+                                        height: 240px;
+                                        margin-top: -10px;
+                                        margin-bottom: -95px;
+                                        margin-left: 30px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name"> Lemonade with Honey </div>
+                                            <div id="food-info"> Classic   |   Large</div>
+                                            <div id="food-price"> ₱55   |   ₱70</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    <div class="food-card">
+                                        <img src="ClubChips.png" alt="Sausage" 
+                                        style="
+                                        width: 250px; 
+                                        height: 220px;
+                                        margin-top: 5px;
+                                        margin-bottom: -85px;
+                                        margin-left: 15px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name">Club Chips Sandwich </div>
+                                            <div id="food-info"> Special</div>
+                                            <div id="food-price"> ₱250</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    
+
+                                    
+
+                                    
+                                </div> 
+
+                                <div class="food-card-container1-title" id="sulit"> Sulit-Meal: Big Taste, Small Price!</div>
+                                <div class="food-card-container1">
+                                    
+                                    <div class="food-card">
+                                            <img src="Clubhouse1.png" alt="Sausage" 
+                                            style="
+                                        width: 250px; 
+                                        height: 220px;
+                                        margin-top: -30px;
+                                        margin-bottom: -60px;
+                                        margin-left: 15px;"
+                                        >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name"> Egg Mayo with Chips </div>
+                                                <div id="food-info"> Budget-Meal </div>
+                                                <div id="food-price"> ₱99</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="VegBurger.png" alt="Sausage" 
+                                            style="
+                                        width: 250px; 
+                                        height: 220px;
+                                        margin-top: -30px;
+                                        margin-bottom: -60px;
+                                        margin-left: 15px;"
+                                        >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name"> Vegetarian Meal </div>
+                                                <div id="food-info"> Budget-Meal </div>
+                                                <div id="food-price"> ₱150</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+    
+                                        <div class="food-card">
+                                            <img src="Zoomburger.png" alt="Sausage" style="
+                                            width: 200px; 
+                                            height: 180px;
+                                            margin-top: -10px;
+                                            margin-bottom: -40px;
+                                            margin-left: 35px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name">Chicken Zoom Burger </div>
+                                                <div id="food-info"> Whole Wheat </div>
+                                                <div id="food-price"> ₱150</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="MushroomSandwich.png" alt="Sausage" style="
+                                            width: 250px; 
+                                            height: 230px;
+                                            margin-top: -20px;
+                                            margin-bottom: -80px;
+                                            margin-left: 5px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name">Mushroom Sandwich </div>
+                                                <div id="food-info"> Fresh Mushroom, Sauce & Chips </div>
+                                                <div id="food-price"> ₱200</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+
+    
+                                        
+                                    </div> 
+
+
+                                    <div class="food-card-container1-title" id="drinks"> Drinks that Hit the Spot!</div>
+                                <div class="food-card-container1">
+                                    <div class="food-card">
+                                        <img src="LemonLychee.png" alt="Sausage" style="
+                                        width: 270px; 
+                                        height: 220px;
+                                        margin-top: -20px;
+                                        margin-bottom: -70px;
+                                        margin-left: 10px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name">Lychee Lemon Juice </div>
+                                            <div id="food-info"> Fresh Lemon with Lychee</div>
+                                            <div id="food-price"> ₱60</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+                                        <div class="food-card">
+                                            <img src="LemonFrappe.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name">Dropped Frappe </div>
+                                                <div id="food-info"> Lemon Dropped Frappe </div>
+                                                <div id="food-price"> ₱100</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="LemonCucumber.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name">Cucumber Lemon Juice</div>
+                                                <div id="food-info"> Lemon with Fresh Cucumber </div>
+                                                <div id="food-price"> ₱60</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="LemonKiwi.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+
+                                            </div>
+                                            <div id="food-name">Kiwi Lemon Juice </div>
+                                                <div id="food-info"> Lemon Dropped Frappe </div>
+                                                <div id="food-price"> ₱100</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="Charnade.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name">Charnade </div>
+                                                <div id="food-info"> Charcoal and Anti-Oxidant </div>
+                                                <div id="food-price"> ₱110</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="Chia.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name">Chia Bliss </div>
+                                                <div id="food-info"> Lemon added with Chia </div>
+                                                <div id="food-price"> ₱110</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="Citrus.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name">Barley Citrus </div>
+                                                <div id="food-info">Refreshing Barley Citrus </div>
+                                                <div id="food-price"> ₱375</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="CitrusFrappe.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name">Barley Citrus Frappe </div>
+                                                <div id="food-info"> Refreshing Barley Citrus Frappe </div>
+                                                <div id="food-price"> ₱349</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="Blueberry.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name">Blueberry Frappe </div>
+                                                <div id="food-info"> Blueberry Lemon </div>
+                                                <div id="food-price"> ₱199</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="BlueberryJuice.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name">Blueberry Juice </div>
+                                                <div id="food-info"> Blueberry Lemon Juice </div>
+                                                <div id="food-price"> ₱120</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="Berry.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+
+                                            </div>
+                                            <div id="food-name">Berry Pebble </div>
+                                                <div id="food-info"> Berry Pebble Frappe </div>
+                                                <div id="food-price"> ₱219</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="Sweet.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+
+                                            </div>
+                                            <div id="food-name">Sweetshot Honey </div>
+                                                <div id="food-info"> Lemon Honey for healhier skin </div>
+                                                <div id="food-price"> ₱110</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="Ginger.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+
+                                            </div>
+                                            <div id="food-name">Ginger Thrill </div>
+                                                <div id="food-info"> Lemon with Ginger </div>
+                                                <div id="food-price"> ₱219</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+    
+                                        
+                                    </div>
+
+
+
+                                    <div class="food-card-container4-title" id="rice"> Rice-Meal: Packed with Flavor!</div>
+                                <div class="food-card-container4">
+                                    <div class="food-card">
+                                        <img src="FishRice.png" alt="Sausage" style="
+                                        width: 270px; 
+                                        height: 200px;
+                                        margin-top: -5px;
+                                        margin-bottom: -60px;
+                                        margin-left: 10px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name">Crispy Fish Rice Bowl </div>
+                                            <div id="food-info"> Fish Rice Meal </div>
+                                            <div id="food-price"> ₱199</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    <div class="food-card">
+                                        <img src="Crispy.png" alt="Sausage" style="
+                                        width: 220px; 
+                                        height: 220px;
+                                        margin-top: -20px;
+                                        margin-bottom: -70px;
+                                        margin-left: 30px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name">Crispy Fried Chicken </div>
+                                            <div id="food-info">with Special Sauce </div>
+                                            <div id="food-price"> ₱199</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    <div class="food-card">
+                                        <img src="Smoked.png" alt="Sausage" style="
+                                        width: 240px; 
+                                        height: 220px;
+                                        margin-top: -20px;
+                                        margin-bottom: -70px;
+                                        margin-left: 25px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name">Smoked Chicken </div>
+                                            <div id="food-info"> Specialty </div>
+                                            <div id="food-price"> ₱199</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    <div class="food-card">
+                                        <img src="Penne.png" alt="Sausage" style="
+                                        width: 230px; 
+                                        height: 220px;
+                                        margin-top: -20px;
+                                        margin-bottom: -70px;
+                                        margin-left: 25px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name">Greek Chicken Penne </div>
+                                            <div id="food-info"> Pasta Dish </div>
+                                            <div id="food-price"> ₱249</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    <div class="food-card">
+                                        <img src="Herbed.png" alt="Sausage" style="
+                                        width: 270px; 
+                                        height: 250px;
+                                        margin-top: -20px;
+                                        margin-bottom: -100px;
+                                        margin-left: 10px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+
+                                        </div>
+                                        <div id="food-name">Herbed Chicken </div>
+                                            <div id="food-info"> Herbed Chicken with Rice </div>
+                                            <div id="food-price"> ₱199</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    <div class="food-card">
+                                        <img src="Korean.png" alt="Sausage" style="
+                                        width: 270px; 
+                                        height: 180px;
+                                        margin-top: 5px;
+                                        margin-bottom: -50px;
+                                        margin-left: 10px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name">Korean Chicken </div>
+                                            <div id="food-info"> Korean Chicken Rice Bowl </div>
+                                            <div id="food-price"> ₱199</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    <div class="food-card">
+                                        <img src="Sticky.png" alt="Sausage" style="
+                                        width: 250px; 
+                                        height: 280px;
+                                        margin-top: -45px;
+                                        margin-bottom: -100px;
+                                        margin-left: 10px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            
+                                        </div>
+                                        <div id="food-name">Sticky Chicken </div>
+                                            <div id="food-info">Sticky Chicken </div>
+                                            <div id="food-price"> ₱199</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+    
+                                        
+                                    </div>
+
+
+
+                                    <div class="food-card-container5-title" id="shawarma">Shawarma: Flavor in Every Bite!</div>
+                                <div class="food-card-container5">
+                                    <div class="food-card">
+                                            <img src="BeefRice.png" alt="Sausage" style="
+                                            width: 200px; 
+                                            height: 230px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 30px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+
+                                            </div>
+                                            <div id="food-name"> Beef Shawarma Rice </div>
+                                                <div id="food-info"> HDdajjdkjahdkahkda </div>
+                                                <div id="food-price"> ₱199</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+    
+                                        <div class="food-card">
+                                            <img src="DoubleBeef.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name"> Double Beef Shawarma </div>
+                                                <div id="food-info"> Tenderly Prepared </div>
+                                                <div id="food-price"> ₱349</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="CrispyChicken.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name"> Crispy Meal </div>
+                                                <div id="food-info"> Made with Crispy Chicken </div>
+                                                <div id="food-price"> ₱249</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+
+                                        <div class="food-card">
+                                            <img src="Spiced.png" alt="Sausage" style="
+                                            width: 270px; 
+                                            height: 220px;
+                                            margin-top: -20px;
+                                            margin-bottom: -70px;
+                                            margin-left: 10px;"
+                                            >
+                                            <div class="star-rating">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div id="food-name"> Arabi Shawarma </div>
+                                                <div id="food-info"> Spiced Chicken Shawarma </div>
+                                                <div id="food-price"> ₱299</div>
+    
+                                                <button class="add-to-cart-btn">Add to Cart</button>
+                                                <i class="fa fa-heart" style="font-size:20px"></i>
+                                        </div>
+    
+                                        
+                                    </div>
+
+                               
+                                
+
+                                    <div class="food-card-container6-title" id="extra">Extras: The Perfect Finish!</div>
+
+                                <div class="food-card-container6">
+
+                                    <div class="food-card">
+                                        <img src="Sauce.png" alt="Sausage" style="
+                                        width: 270px; 
+                                        height: 220px;
+                                        margin-top: -20px;
+                                        margin-bottom: -70px;
+                                        margin-left: 10px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name">Shawarma Sauce </div>
+                                            <div id="food-info">Specialty</div>
+                                            <div id="food-price"> ₱49</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                            
+                                    <div class="food-card">
+                                        <img src="Rice.png" alt="Sausage" style="
+                                        width: 270px; 
+                                        height: 220px;
+                                        margin-top: -20px;
+                                        margin-bottom: -70px;
+                                        margin-left: 10px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name">Rice </div>
+                                            <div id="food-info"> Extra White Rice </div>
+                                            <div id="food-price"> ₱29</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+                                    <div class="food-card">
+                                        <img src="Spicy.png" alt="Sausage" style="
+                                        width: 270px; 
+                                        height: 180px;
+                                        margin-top: 5px;
+                                        margin-bottom: -55px;
+                                        margin-left: 10px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name">Spicy Fries Sauce </div>
+                                            <div id="food-info">Extra Spicy Fries Sauce </div>
+                                            <div id="food-price"> ₱29</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+    
+                                    <div class="food-card">
+                                        <img src="Straw.png" alt="Sausage" style="
+                                        width: 270px; 
+                                        height: 220px;
+                                        margin-top: -20px;
+                                        margin-bottom: -70px;
+                                        margin-left: 10px;"
+                                        >
+                                        <div class="star-rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div id="food-name"> 3pcs Straw </div>
+                                            <div id="food-info"> Good for sharing drinkss </div>
+                                            <div id="food-price"> ₱75</div>
+
+                                            <button class="add-to-cart-btn">Add to Cart</button>
+                                            <i class="fa fa-heart" style="font-size:20px"></i>
+                                    </div>
+
+        
+    
+                                        
+                            
+        
+                                    
+                            </div>
+
+                            <div class="upbtn-container">
+                                <div class="upbtn" id="upbtn">
+                                    <a href="#toptop">TOP</a>
+                                      </div>
+                                      </div>
+                            
+                        </div>
+
+                        
+                    
+                    </div>
+                
+            
+          
+            </div>
+
+            
+
+            
+  
+
+            
+
+            
+            
+
+
+
+
+</body>
+</html>
+
+<script>
+function toggleSubnav() {
+    var subnav = document.getElementById("subnav");
+    // Toggle the visibility of the subnav
+    subnav.classList.toggle("show");
+}
+
+// Show content corresponding to the clicked subnav item
+function showContent(contentType) {
+    // Hide all content sections
+    var contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach(function(section) {
+        section.classList.remove('show');
+    });
+
+    // Show the selected content
+    var content = document.getElementById(contentType + '-content');
+    content.classList.add('show');
+}
+
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal__content");
+const close = document.querySelector(".modal__close");
+const modalImg = document.querySelector(".modal__img");
+const productList = document.querySelectorAll(".product__list");
+const title = document.querySelector(".detail__title");
+const cost = document.querySelector(".detail__price");
+
+const productCost = ["£395", "£245", "£195", "£295", "£345", "£455"];
+
+productList.forEach((list, index) => {
+  const view = list.querySelector(".product__viewBtn");
+  const productImg = list.querySelector(".product__img").getAttribute("src");
+
+  view.addEventListener("click", () => {
+    modal.classList.add("modal--bg");
+    modalContent.classList.add("modal__content--show");
+    modalImg.setAttribute("src", productImg);
+    title.innerText = `product title ${index + 1}`;
+    cost.innerText = productCost[index];
+  });
+});
+
+close.addEventListener("click", () => {
+  modal.classList.remove("modal--bg");
+  modalContent.classList.remove("modal__content--show");
+});
+
+modal.addEventListener("click", () => {
+  modal.classList.remove("modal--bg");
+  modalContent.classList.remove("modal__content--show");
+});
+
+$(document).ready(function(){ 
+    $(window).scroll(function(){ 
+        if ($(this).scrollTop() > 100) { 
+            $('#scroll').fadeIn(); 
+        } else { 
+            $('#scroll').fadeOut(); 
+        } 
+    }); 
+    $('#scroll').click(function(){ 
+        $("html, body").animate({ scrollTop: 0 }, 600); 
+        return false; 
+    }); 
+});
+
+function myFunction() {
+  window.open("Login.html");
+}
+
+// Get the button
+let mybutton = document.getElementById("scrollBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+</script>

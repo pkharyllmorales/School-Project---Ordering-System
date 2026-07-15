@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400..700&family=Cedarville+Cursive&family=Courgette&family=Didact+Gothic&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Arabic:wght@100..900&family=Satisfy&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous">
+
+     <title>Joel's Lemonade</title>
+     <style>
+
+         html {
+           scroll-behavior: smooth;
+         }
+
+         body {
+             height: 1000px;
+             min-width: auto;
+             background: radial-gradient(#FFED40, #e47200);
+             overflow-y: hidden; overflow-x: hidden;
+         }
+
+         .topnav {
+            height: 55px;
+            min-width: auto;
+            margin: -10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2.8px);
+            float: left;
+            position: fixed;
+            top: 0;
+            margin-top: -1px;
+        }
+
+        .nav {
+            height: 50px;
+            width: 700px;
+            align-items: center;
+            justify-content: space-around;
+            display: flex;
+            margin: 5px 0 0 10px;
+            position: fixed;
+            z-index: 1000;
+            top: 1;
+        }
+
+        .nav a {
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            border-bottom: 3px solid transparent;
+            font-family: "Tajawal", sans-serif;
+        }
+
+        .nav a:hover {
+            color: #D33D3A;
+            font-weight: bold;
+            transform: translateY(-5px);
+            transition: 0.25s;
+        }
+
+                    .logo {
+                    height: 100px;
+                    width: 115px;
+                    margin-left: -10px;
+                    margin-top: 50px;
+                }
+
+                .cartnsearch-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 300px;
+                    height: 50px;
+                    position: relative;
+                    margin-left: 1550px;
+                    padding-top: 10px;
+                }
+
+                    * {
+                box-sizing: border-box;
+
+                }
+
+                .search-container {
+                    position: relative;
+                    width: fit-content;
+                    height: fit-content;
+                }
+
+                .input-search {
+                    border-style: none;
+                    padding: 10px;
+                    height: 45px;
+                    width: 0px;
+                    font-size: 18px;
+                    letter-spacing: 2px;
+                    background-color: transparent;
+                    outline: none;
+                    border-radius: 25px;
+                    color: #ffffff;
+                    transition: all 0.5s ease-in-out; 
+                    position: relative;
+                }
+
+                .input-search::placeholder {
+                    font-size: 18px;
+                    letter-spacing: 2px;
+                    font-weight: 100;
+                    color: rgb(255, 255, 255);
+                }
+
+                .btn-search {
+                    border-style: none;
+                    font-size: 18px;
+                    position: absolute;
+                    font-weight: bold;
+                    width: 50px;
+                    height: 50px;
+                    outline: none;
+                    cursor: pointer;
+                    left:0;
+                    color: #fffbfb;
+                    background-color: transparent;
+                    pointer-events: painted;
+                    margin-top: -2.5px;
+                    margin-left: 50px;
+                }
+
+                .btn-search:hover{
+                    transform: translateY(-5px);
+                    transition: 0.25s;
+                    color: #ff5733;
+                }
+
+                .btn-search:focus ~ .input-search{
+                    border-radius: 0px;
+                    background-color: transparent;
+                    width: 200px; /* Expand the input field */
+                    border-bottom: 1px solid rgb(255, 255, 255);
+                    transform: translateX(-150px); /* Move the input field to the left */
+                    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+                        
+                }
+
+                .input-search:focus {
+                    border-radius: 0px;
+                    width: 200px;
+                    border-bottom: 1px solid rgb(255, 255, 255);
+                    background-color: transparent;
+                    transform: translateX(-150px); /* Move input field to the left */
+                    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+                }
+
+                .cart-link {
+                    text-decoration: none;
+                    transition: 0.25s;
+                    position: absolute; /* Ensures cart button stays in place */
+                    top: 17px; /* Adjust position as needed */
+                    right: 220px;
+                    color: white;
+                    
+                }
+
+                /* On hover, change color and scale */
+                .cart-link:hover {
+                    color: #ff5733;
+                    transform: translateY(-5px);
+                }
+
+                .user-link {
+                    text-decoration: none;
+                    transition: 0.25s;
+                    position: absolute; /* Ensures cart button stays in place */
+                    top: 18px; /* Adjust position as needed */
+                    right: 175px;
+                    color: white;
+                    cursor: pointer;
+                    
+                }
+
+                /* On hover, change color and scale */
+                .user-link:hover {
+                    color: #ff5733;
+                    transform: translateY(-5px);
+                }
+
+
+        * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-body {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-top: 54px;
+        }
+
+        .contact-body::after {
+        content: "";
+        position: absolute;
+        margin-top: -50px;
+        left: 50;
+        height: 80%;
+        width: 80%;
+        background-color: rgba(255, 255, 255, 0.1);
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+        position: relative;
+        z-index: 3;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        }
+
+        .container {
+        max-width: 1080px;
+        margin-left: 250px;
+        margin-right: auto;
+        margin-top: 50px;
+
+        }
+
+        .section-header {
+        margin-bottom: 50px;
+        text-align: center;
+        width: 800px;
+        margin-left: 300px;
+        }
+
+        .section-header h2 {
+        color: #D33D3A;
+        font-weight: bold;
+        font-size: 5em;
+        margin-bottom: 20px;
+        margin-left: -500px;
+        margin-top: 150px;
+        }
+
+        .section-header p {
+        color: #FFF;
+        margin-left: -270px;
+        width: 500px;
+        height: 300px;
+        text-align:center;
+        }
+
+        .row  {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 2-0px;
+        margin-left: -400px;
+        margin-top: -100px;
+        }
+
+        .contact-info {
+        width: 50%;
+        height: 50%;
+        margin-top: 200px;
+        }
+
+        .contact-info-item {
+        display: flex;
+        margin-bottom: 30px;
+        }
+
+        .contact-info-icon {
+        height: 60px;
+        width: 60px;
+        background-color: #fff;
+        text-align: center;
+        border-radius: 50%;
+        }
+
+        .contact-info-icon i {
+        font-size: 30px;
+        line-height: 70px;
+        margin-top: -5px;
+        }
+
+        .contact-info-content {
+        margin-left: 10px;
+        }
+
+        .contact-info-content h4 {
+        color: #D33D3A;
+        font-size: 1.4em;
+        margin-bottom: 5px;
+        }
+
+        .contact-info-content p {
+        color: #FFF;
+        font-size: 1em;
+        }
+
+        .contact-form {
+        background-color: #fff;
+        padding: 40px;
+        width: 450px;
+        height: 780px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        margin-top: -498px;
+        margin-left: 270px;
+        z-index: 4; /* Add this line */
+        position: relative; /* Make sure it’s positioned */
+        }
+
+        .contact-form h2 {
+        font-weight: bold;
+        font-size: 2em;
+        margin-bottom: 50px;
+        margin-top: 50px;
+        color: #333;
+        }
+
+        .contact-form .input-box {
+        position: relative;
+        width: 100%;
+        margin-top: 10px;
+        }
+
+        .contact-form .input-box input,
+        .contact-form .input-box textarea{
+        width: 100%;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 10px 0;
+        border: none;
+        border-bottom: 2px solid #333;
+        outline: none;
+        resize: none;
+        
+        }
+
+        .contact-form .input-box span {
+        position: absolute;
+        left: 0;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 10px 0;
+        pointer-events: none;
+        transition: 0.5s;
+        color: #666;
+        }
+
+        .contact-form .input-box input:focus ~ span,
+        .contact-form .input-box textarea:focus ~ span{
+        color: #e91e63;
+        font-size: 12px;
+        transform: translateY(-20px);
+        }
+
+        .contact-form .input-box input[type="submit"]
+        {
+        width: 100%;
+        background: #00bcd4;
+        color: #FFF;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 18px;
+        border: 1px solid #00bcd4;
+        transition: 0.5s;
+        }
+
+        .contact-form .input-box input[type="submit"]:hover
+        {
+        background: #FFF;
+        color: #00bcd4;
+        }
+
+        @media (max-width: 991px) {
+        section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .row {
+            flex-direction: column;
+        }
+        
+        .contact-info {
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        
+        .contact-form {
+            width: 100%;
+        }
+        }
+
+            
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+                    
+        ::-webkit-scrollbar-thumb {
+            background:#D33D3A;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: white;
+        }
+
+        </style>
+        </head>
+
+        <div class="topnav">
+          <div class="nav"> 
+            <div class="logo">
+              <a href="LandingPage.html"> <!-- Replace 'index.html' with your desired destination URL -->
+                <img src="Logo.png" alt="Joel's Lemonade Logo" style="height: 50px;">
+              </a>
+            </div>
+
+              <a href="Joel's-Lemonade.html">Home</a>
+              <a href="Joel's-Lemonade.html #deals">Deals</a>
+              <a href="Menu-Section.html">Menu</a>
+              <a href="OrderPage.html">Order</a>
+              <a href="Joel's-Lemonade.html #reviews">Reviews</a>
+            
+
+          </div>
+
+        
+
+
+            <div class="contact-body">
+            <div class="section-header">
+                <div class="container">
+                  <h2>Contact Us</h2>
+                  <p> Our team is passionate about providing you with top-notch service, whether you're stopping by for a quick drink, hosting a special event, or looking for a custom order. If you have any questions, special requests, or just want to chat about our menu, don't hesitate to get in touch! We’d love to hear from you and make your experience with us even sweeter.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="container">
+                <div class="row">
+                  
+                  <div class="contact-info">
+                    <div class="contact-info-item">
+                      <div class="contact-info-icon">
+                        <i class="fas fa-home"></i>
+                      </div>
+                      
+                      <div class="contact-info-content">
+                        <h4>Address</h4>
+                        <p>4671 Sugar Camp Road,<br/> Owatonna, Minnesota, <br/>55060</p>
+                      </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                      <div class="contact-info-icon">
+                        <i class="fas fa-phone"></i>
+                      </div>
+                      
+                      <div class="contact-info-content">
+                        <h4>Phone</h4>
+                        <p>571-457-2321</p>
+                      </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                      <div class="contact-info-icon">
+                        <i class="fas fa-envelope"></i>
+                      </div>
+                      
+                      <div class="contact-info-content">
+                        <h4>Email</h4>
+                       <p>ntamerrwael@mfano.ga</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="contact-form">
+                    <form action="" id="contact-form">
+                      <h2>Send Message</h2>
+                      <div class="input-box">
+                        <input type="text" required="true" name="">
+                        <span>Full Name</span>
+                      </div>
+                      
+                      <div class="input-box">
+                        <input type="email" required="true" name="">
+                        <span>Email</span>
+                      </div>
+                      
+                      <div class="input-box">
+                        <textarea required="true" name=""></textarea>
+                        <span>Type your Message...</span>
+                      </div>
+                      
+                      <div class="input-box">
+                        <input type="submit" value="Send" name="">
+                      </div>
+                    </form>
+                  </div>
+                  
+                </div>
+              </div>
+            </section>
+        </div>
+            
+
+          </body>
+            
+
+            
+
+            
+        
+
+
+
+
+</body>
+</html>
+
+<script>
+function toggleSubnav() {
+    var subnav = document.getElementById("subnav");
+    // Toggle the visibility of the subnav
+    subnav.classList.toggle("show");
+}
+
+// Show content corresponding to the clicked subnav item
+function showContent(contentType) {
+    // Hide all content sections
+    var contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach(function(section) {
+        section.classList.remove('show');
+    });
+
+    // Show the selected content
+    var content = document.getElementById(contentType + '-content');
+    content.classList.add('show');
+}
+
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal__content");
+const close = document.querySelector(".modal__close");
+const modalImg = document.querySelector(".modal__img");
+const productList = document.querySelectorAll(".product__list");
+const title = document.querySelector(".detail__title");
+const cost = document.querySelector(".detail__price");
+
+const productCost = ["£395", "£245", "£195", "£295", "£345", "£455"];
+
+productList.forEach((list, index) => {
+  const view = list.querySelector(".product__viewBtn");
+  const productImg = list.querySelector(".product__img").getAttribute("src");
+
+  view.addEventListener("click", () => {
+    modal.classList.add("modal--bg");
+    modalContent.classList.add("modal__content--show");
+    modalImg.setAttribute("src", productImg);
+    title.innerText = `product title ${index + 1}`;
+    cost.innerText = productCost[index];
+  });
+});
+
+close.addEventListener("click", () => {
+  modal.classList.remove("modal--bg");
+  modalContent.classList.remove("modal__content--show");
+});
+
+modal.addEventListener("click", () => {
+  modal.classList.remove("modal--bg");
+  modalContent.classList.remove("modal__content--show");
+});
+
+function myFunction() {
+  window.open("Login.html");
+}
+
+</script>
+
+<script>
+  // Function to open modal
+  function openModal(imageSrc) {
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modal-image');
+    modalImage.src = imageSrc; // Set the modal image source
+    modal.classList.add('visible'); // Show the modal
+  }
+
+  // Function to close modal
+  function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.classList.remove('visible'); // Hide the modal
+  }
+</script>

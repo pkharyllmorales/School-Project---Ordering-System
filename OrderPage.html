@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400..700&family=Cedarville+Cursive&family=Courgette&family=Didact+Gothic&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Arabic:wght@100..900&family=Satisfy&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+     <title>Joel's Lemonade</title>
+     <style>
+
+         html {
+           scroll-behavior: smooth;
+         }
+
+         body {
+             height: 1000px;
+             min-width: auto;
+             background: radial-gradient(#FFED40, #e47200);
+             overflow-y: hidden; overflow-x: hidden;
+         }
+
+         .topnav {
+            height: 55px;
+            min-width: auto;
+            margin: -10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2.8px);
+            float: left;
+            position: fixed;
+            top: 0;
+            margin-top: -1px;
+        }
+
+        .nav {
+            height: 50px;
+            width: 700px;
+            align-items: center;
+            justify-content: space-around;
+            display: flex;
+            margin: 5px 0 0 10px;
+            position: fixed;
+            z-index: 1000;
+            top: 1;
+        }
+
+        .nav a {
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            border-bottom: 3px solid transparent;
+            font-family: "Tajawal", sans-serif;
+        }
+
+        .nav a:hover {
+            color: #D33D3A;
+            font-weight: bold;
+            transform: translateY(-5px);
+            transition: 0.25s;
+        }
+
+                    .logo {
+                    height: 100px;
+                    width: 115px;
+                    margin-left: -10px;
+                    margin-top: 50px;
+                }
+
+                .cartnsearch-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 300px;
+                    height: 50px;
+                    position: relative;
+                    margin-left: 1550px;
+                    padding-top: 10px;
+                }
+
+                    * {
+                box-sizing: border-box;
+
+                }
+
+                .search-container {
+                    position: relative;
+                    width: fit-content;
+                    height: fit-content;
+                }
+
+                .input-search {
+                    border-style: none;
+                    padding: 10px;
+                    height: 45px;
+                    width: 0px;
+                    font-size: 18px;
+                    letter-spacing: 2px;
+                    background-color: transparent;
+                    outline: none;
+                    border-radius: 25px;
+                    color: #ffffff;
+                    transition: all 0.5s ease-in-out; 
+                    position: relative;
+                }
+
+                .input-search::placeholder {
+                    font-size: 18px;
+                    letter-spacing: 2px;
+                    font-weight: 100;
+                    color: rgb(255, 255, 255);
+                }
+
+                .btn-search {
+                    border-style: none;
+                    font-size: 18px;
+                    position: absolute;
+                    font-weight: bold;
+                    width: 50px;
+                    height: 50px;
+                    outline: none;
+                    cursor: pointer;
+                    left:0;
+                    color: #fffbfb;
+                    background-color: transparent;
+                    pointer-events: painted;
+                    margin-top: 18px;
+                    margin-left: 50px;
+                }
+
+                .btn-search:hover{
+                    transform: translateY(-5px);
+                    transition: 0.25s;
+                    color: #ff5733;
+                }
+
+                .btn-search:focus ~ .input-search{
+                    border-radius: 0px;
+                    background-color: transparent;
+                    width: 200px; /* Expand the input field */
+                    border-bottom: 1px solid rgb(255, 255, 255);
+                    transform: translateX(-150px); /* Move the input field to the left */
+                    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+                        
+                }
+
+                .input-search:focus {
+                    border-radius: 0px;
+                    width: 200px;
+                    border-bottom: 1px solid rgb(255, 255, 255);
+                    background-color: transparent;
+                    transform: translateX(-150px); /* Move input field to the left */
+                    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+                }
+
+                .cart-link {
+                    text-decoration: none;
+                    transition: 0.25s;
+                    position: absolute; /* Ensures cart button stays in place */
+                    top: 17px; /* Adjust position as needed */
+                    right: 220px;
+                    color: white;
+                    
+                }
+
+                /* On hover, change color and scale */
+                .cart-link:hover {
+                    color: #ff5733;
+                    transform: translateY(-5px);
+                }
+
+                .user-link {
+                    text-decoration: none;
+                    transition: 0.25s;
+                    position: absolute; /* Ensures cart button stays in place */
+                    top: 18px; /* Adjust position as needed */
+                    right: 175px;
+                    color: white;
+                    cursor: pointer;
+                    
+                }
+
+                /* On hover, change color and scale */
+                .user-link:hover {
+                    color: #ff5733;
+                    transform: translateY(-5px);
+                }
+
+                
+
+                * {
+        border: 0;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --hue: 223;
+        --bg: hsl(var(--hue), 10%, 90%);
+        --fg: hsl(var(--hue), 10%, 10%);
+        --trans-dur: 0.3s;
+        font-size: calc(14px + (30 - 14) * (100vw - 280px) / (3840 - 280));
+      }
+
+      .pl {
+        margin: auto;
+        margin-left: 800px;
+        margin-top: 20px;
+        width: 12em;
+        height: 12em;
+        transition: background-color var(--trans-dur), color var(--trans-dur);
+        color: var(--fg);
+        
+      }
+
+      .pl__drop, .pl__drop-inner, .pl__pan, .pl__ring, .pl__shadow {
+        animation: pan 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+      .pl__drop {
+        transform-origin: 13px 60px;
+      }
+      .pl__drop-inner {
+        animation-timing-function: cubic-bezier(0.33, 0.84, 0.67, 0.84);
+      }
+      .pl__drop--1 {
+        animation-name: drop-1;
+      }
+      .pl__drop--1 .pl__drop-inner {
+        animation-name: drop- 1-inner;
+      }
+      .pl__drop--2 {
+        animation-name: drop-2;
+      }
+      .pl__drop--2 .pl__drop-inner {
+        animation-name: drop- 2-inner;
+      }
+      .pl__drop--3 {
+        animation-name: drop-3;
+        transform-origin: 67px 72px;
+      }
+      .pl__drop--3 .pl__drop-inner {
+        animation-name: drop- 3-inner;
+      }
+      .pl__drop--4 {
+        animation-name: drop-4;
+        transform-origin: 67px 72px;
+      }
+      .pl__drop--4 .pl__drop-inner {
+        animation-name: drop- 4-inner;
+      }
+      .pl__drop--5 {
+        animation-name: drop-5;
+        transform-origin: 67px 72px;
+      }
+      .pl__drop--5 .pl__drop-inner {
+        animation-name: drop- 5-inner;
+      }
+      .pl__pan {
+        transform-origin: 36px 74px;
+      }
+      .pl__ring {
+        animation-name: flip-ring;
+      }
+      .pl__shadow {
+        animation-name: pan-shadow;
+        transform-origin: 36px 124.5px;
+      }
+      /* Dark theme */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: hsl(var(--hue), 10%, 10%);
+          --fg: hsl(var(--hue), 10%, 90%);
+        }
+      }
+      /* Animation */
+      @keyframes drop-1 {
+        from {
+          animation-timing-function: steps(1, end);
+          transform: translate(0, 0);
+          visibility: hidden;
+        }
+        30% {
+          animation-timing-function: linear;
+          transform: translate(0, 0);
+          visibility: visible;
+        }
+        50%, to {
+          transform: translate(-6px, 0);
+        }
+      }
+      @keyframes drop-1-inner {
+        from, 30% {
+          fill: #abafba;
+          transform: translate(0, 0);
+        }
+        50%, to {
+          fill: rgba(171, 175, 186, 0);
+          transform: translate(0, -27px);
+        }
+      }
+      @keyframes drop-2 {
+        from {
+          animation-timing-function: steps(1, end);
+          transform: translate(0, 0);
+          visibility: hidden;
+        }
+        30% {
+          animation-timing-function: linear;
+          transform: translate(0, 0);
+          visibility: visible;
+        }
+        50%, to {
+          transform: translate(-8px, 0);
+        }
+      }
+      @keyframes drop-2-inner {
+        from, 30% {
+          fill: #abafba;
+          transform: translate(0, 0);
+        }
+        50%, to {
+          fill: rgba(171, 175, 186, 0);
+          transform: translate(0, -9px);
+        }
+      }
+      @keyframes drop-3 {
+        from {
+          animation-timing-function: steps(1, end);
+          transform: translate(0, 0);
+          visibility: hidden;
+        }
+        78% {
+          animation-timing-function: linear;
+          transform: translate(0, 0);
+          visibility: visible;
+        }
+        98%, to {
+          transform: translate(-24px, 0);
+        }
+      }
+      @keyframes drop-3-inner {
+        from, 78% {
+          fill: #abafba;
+          transform: translate(0, 0);
+        }
+        98%, to {
+          fill: rgba(171, 175, 186, 0);
+          transform: translate(0, -28px);
+        }
+      }
+      @keyframes drop-4 {
+        from {
+          animation-timing-function: steps(1, end);
+          transform: translate(0, 0);
+          visibility: hidden;
+        }
+        78% {
+          animation-timing-function: linear;
+          transform: translate(0, 0);
+          visibility: visible;
+        }
+        98%, to {
+          transform: translate(-8px, 0);
+        }
+      }
+      @keyframes drop-4-inner {
+        from, 78% {
+          fill: #abafba;
+          transform: translate(0, 0);
+        }
+        98%, to {
+          fill: rgba(171, 175, 186, 0);
+          transform: translate(0, -36px);
+        }
+      }
+      @keyframes drop-5 {
+        from {
+          animation-timing-function: steps(1, end);
+          transform: translate(0, 0);
+          visibility: hidden;
+        }
+        78% {
+          animation-timing-function: linear;
+          transform: translate(0, 0);
+          visibility: visible;
+        }
+        98%, to {
+          transform: translate(8px, 0);
+        }
+      }
+      @keyframes drop-5-inner {
+        from, 78% {
+          fill: #abafba;
+          transform: translate(0, 0);
+        }
+        98%, to {
+          fill: rgba(171, 175, 186, 0);
+          transform: translate(0, -32px);
+        }
+      }
+      @keyframes flip-ring {
+        from, 27% {
+          animation-timing-function: cubic-bezier(0.33, 0.84, 0.67, 0.84);
+          stroke-dashoffset: 20;
+          stroke-width: 4px;
+        }
+        53.5% {
+          animation-timing-function: cubic-bezier(0.33, 0.16, 0.67, 0.16);
+          stroke-dashoffset: -100;
+          stroke-width: 10px;
+        }
+        80%, to {
+          stroke-dashoffset: -220;
+          stroke-width: 4px;
+        }
+      }
+      @keyframes pan {
+        from, 88%, to {
+          transform: translate(0, 0) rotate(0);
+        }
+        20% {
+          animation-timing-function: cubic-bezier(0.33, 0.16, 0.67, 0.16);
+          transform: translate(-5px, 0) rotate(-30deg);
+        }
+        30% {
+          animation-timing-function: cubic-bezier(0.33, 0.84, 0.67, 0.84);
+          transform: translate(0, 0) rotate(20deg);
+        }
+        60%, 78% {
+          animation-timing-function: linear;
+          transform: translate(0, 0) rotate(0);
+        }
+        81.33% {
+          animation-timing-function: linear;
+          transform: translate(0, 4px) rotate(0);
+        }
+        84.67% {
+          animation-timing-function: linear;
+          transform: translate(0, -2px) rotate(0);
+        }
+      }
+      @keyframes pan-shadow {
+        from, 88%, to {
+          fill: rgba(115, 122, 140, 0.2);
+          transform: scaleX(1);
+        }
+        20% {
+          animation-timing-function: cubic-bezier(0.33, 0.16, 0.67, 0.16);
+          fill: rgba(115, 122, 140, 0.2);
+          transform: scaleX(0.77);
+        }
+        30% {
+          animation-timing-function: cubic-bezier(0.33, 0.84, 0.67, 0.84);
+          fill: rgba(115, 122, 140, 0.2);
+          transform: scaleX(1);
+        }
+        60%, 78% {
+          animation-timing-function: linear;
+          fill: rgba(115, 122, 140, 0.2);
+          transform: scaleX(1);
+        }
+        81.33% {
+          animation-timing-function: linear;
+          fill: rgba(115, 122, 140, 0.25);
+          transform: scaleX(0.87);
+        }
+        84.67% {
+          animation-timing-function: linear;
+          fill: rgba(115, 122, 140, 0.225);
+          transform: scaleX(1.065);
+        }
+      }
+
+      .preparing {
+        font-size: 30px;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        margin-top: 300px;
+        margin-left: 700px;
+        font-family: "Tajawal", sans-serif;
+      }
+
+
+    
+      .horizontal.timeline {
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 50%;
+  height: 10%;
+  margin-left: 550px;
+
+
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		width: 50%;
+		height: 0.2em;
+		background-color: lighten(#000, 95%);
+	}
+
+	.line {
+		display: block;
+		position: absolute;
+		width: 50%;
+		height: 0.2em;
+		background-color: #D33D3A;
+	}
+
+	.steps {
+		display: flex;
+		position: relative;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 80%;
+
+		.step {
+			display: block;
+			position: relative;
+			bottom: calc(100% + 1em);
+			padding: 0.33em;
+			margin: 0 2em;
+			box-sizing: content-box;
+			color: #D33D3A;
+			background-color: currentColor;
+			border: 0.25em solid white;
+			border-radius: 50%;
+			z-index: 500;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+				color: #71cb35;
+			}
+
+			span {
+				position: absolute;
+
+				top: calc(100% + 1em);
+				left: 50%;
+				transform: translateX(-50%);
+				white-space: nowrap;
+				color: #000;
+				opacity: 0.4;
+			}
+
+			&.current {
+				&:before {
+					content: "";
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+
+					padding: 1em;
+					background-color: currentColor;
+					border-radius: 50%;
+					opacity: 0;
+					z-index: -1;
+
+					animation-name: animation-timeline-current;
+					animation-duration: 2s;
+					animation-iteration-count: infinite;
+					animation-timing-function: ease-out;
+				}
+
+				span {
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+}
+
+@keyframes animation-timeline-current {
+	from {
+		transform: translate(-50%, -50%) scale(0);
+		opacity: 1;
+	}
+	to {
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 0;
+	}
+}
+
+      
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal .modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal .modal-content {
+  position: relative;
+  z-index: 1001;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  width: 370px;
+  max-width: 90%;
+
+}
+
+.modal .modal-content img {
+  width: 100%;
+  border-radius: 10px;
+  display: none;
+}
+
+.modal .modal-content .modal-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: -10px;
+  text-align: center;
+  font-family: "Tajawal", sans-serif;
+}
+
+.modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.modal.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.main{
+	width: 350px;
+	height: 500px;
+	overflow: hidden;
+	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+	border-radius: 10px;
+  font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #d4870a, #ce9608, #807820);
+}
+#chk{
+	display: none;
+}
+.signup{
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+label{
+	color: #fff;
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	margin: 50px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+input{
+	width: 60%;
+	height: 10px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 12px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+.mbutton{
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #573b8a;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 30px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+.mbutton:hover{
+	background: #6d44b8;
+}
+.login{
+	height: 460px;
+	background: #eee;
+	border-radius: 60% / 10%;
+	transform: translateY(-180px);
+	transition: .8s ease-in-out;
+}
+.login label{
+	color: #ffbf00;
+	transform: scale(.6);
+}
+
+#chk:checked ~ .login{
+	transform: translateY(-500px);
+}
+#chk:checked ~ .login label{
+	transform: scale(1);	
+}
+#chk:checked ~ .signup label{
+	transform: scale(.6);
+}
+
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none; /* Prevents interaction when hidden */
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  font-family:"Tajawal", sans-serif;
+}
+
+.modal.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+}
+
+.modal-content1 {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1001;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #D33D3A;
+  cursor: pointer;
+}
+
+.btn-cancel, .btn-confirm, .btn-dismiss {
+  margin: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #D33D3A;
+  color: #fff;
+  width: 150px;
+  margin-top: 100px;
+  margin-left: 820px;
+}
+
+.btn-confirm {
+  background-color: #D33D3A;
+  color: #fff;
+}
+
+.btn-dismiss {
+  background-color: #ccc;
+  color: #333;
+}
+
+    
+
+
+
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+                    
+        ::-webkit-scrollbar-thumb {
+            background:#D33D3A;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: white;
+        }
+
+        </style>
+        </head>
+
+        <div class="topnav">
+          <div class="nav"> 
+            <div class="logo">
+              <a href="LandingPage.html"> <!-- Replace 'index.html' with your desired destination URL -->
+                <img src="Logo.png" alt="Joel's Lemonade Logo" style="height: 50px;">
+              </a>
+            </div>
+
+              <a href="LandingPage.html">Home</a>
+              <a href="LandingPage.html #deals">Deals</a>
+              <a href="LandingPage1.html">Menu</a>
+              <a href="ContactPage.html">Contact</a>
+              <a href="LandingPage.html #reviews">Reviews</a>
+            
+
+          </div>
+
+          <div class="cartnsearch-container">
+
+
+              <div class="search-container">
+                <button class="btn-search">
+                    <i class="fas fa-search" style="font-size: 22px;"></i>
+                </button>
+                <input type="text" class="input-search" placeholder="Search...">
+              </div>
+
+
+              <div class="card-container">
+                <a class="user-link">
+                  <i class="fa fa-user" style="font-size:25px" onclick="openModal('deals1.png')"></i>
+              </a>
+               </div>
+
+            
+            </div>
+          
+      </div>
+
+        <body>
+          
+          <body>
+
+            <div id="modal" class="modal">
+              <div class="modal-overlay" onclick="closeModal()"></div>
+              <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <img id="modal-image" src="" alt="Modal Image" />
+                <title>Slide Navbar</title>
+                <link rel="stylesheet" type="text/css" href="slide navbar style.css">
+                <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+                </head>
+                <body>
+                <div class="main">  	
+                  <input type="checkbox" id="chk" aria-hidden="true">
+
+                  <div class="signup">
+                    <form>
+                      <label for="chk" aria-hidden="true">Sign up</label>
+                      <input type="text" name="txt" placeholder="User name" required="">
+                      <input type="email" name="email" placeholder="Email" required="">
+                      <input type="number" name="broj" placeholder="Phone Number" required="">
+                      <input type="password" name="pswd" placeholder="Password" required="">
+                      <button class="signup-btn" style="background-color: rgba(255, 255, 255, 0.5); color: #ffffff; border: none; padding: 5px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                        Sign up
+                      </button>
+                    </form>
+                  </div>
+
+                <div class="login">
+                  <form>
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="password" name="pswd" placeholder="Password" required="">
+                    <button class="signup-btn" style="background-color: rgba(255, 255, 255, 0.5); color: #fcdb00; border: none; padding: 5px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                      Login
+                    </button>
+                  </form>
+                </div>
+
+              </div>
+              </div>
+            </div>
+      
+
+           
+
+            <div class="preparing"> We are preparing your order! </div>
+
+
+            <svg class="pl" viewBox="0 0 128 128" width="128px" height="128px" role="img" aria-label="A pan being used to flip a blob resembling bacon as it splashes drops of grease in and out">
+                <clipPath id="pan-clip">
+                    <rect rx="12" ry="14" x="4" y="52" width="68" height="28" />
+                </clipPath>
+                <defs>
+                    <linearGradient id="pl-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#000" />
+                        <stop offset="100%" stop-color="#fff" />
+                    </linearGradient>
+                    <mask id="pl-mask">
+                        <rect x="0" y="0" width="88" height="80" fill="url(#pl-grad)" />
+                    </mask>
+                </defs>
+                <g fill="currentColor">
+                    <g fill="none" stroke-dasharray="20 221" stroke-dashoffset="20" stroke-linecap="round" stroke-width="4">
+                        <g stroke="hsl(38,90%,50%)">
+                            <circle class="pl__ring" cx="44" cy="40" r="35" transform="rotate(90,44,40)" />
+                        </g>
+                        <g stroke="hsl(8,90%,40%)" mask="url(#pl-mask)">
+                            <circle class="pl__ring" cx="44" cy="40" r="35" transform="rotate(90,44,40)" />
+                        </g>
+                    </g>
+                    <g fill="hsla(223,10%,70%,0)">
+                        <g class="pl__drop pl__drop--1">
+                            <circle class="pl__drop-inner" cx="13" cy="60" r="2" />
+                        </g>
+                        <g class="pl__drop pl__drop--2">
+                            <circle class="pl__drop-inner" cx="13" cy="60" r="2" />
+                        </g>
+                        <g class="pl__drop pl__drop--3">
+                            <circle class="pl__drop-inner" cx="67" cy="72" r="2" />
+                        </g>
+                        <g class="pl__drop pl__drop--4">
+                            <circle class="pl__drop-inner" cx="67" cy="72" r="2" />
+                        </g>
+                        <g class="pl__drop pl__drop--5">
+                            <circle class="pl__drop-inner" cx="67" cy="72" r="2" />
+                        </g>
+                    </g>
+                    <g class="pl__pan">
+                        <rect rx="2" ry="2" x="4" y="66" width="68" height="14" clip-path="url(#pan-clip)" id="pan" />
+                        <rect rx="2" ry="2" x="76" y="66" width="48" height="7" />
+                    </g>
+                    <rect class="pl__shadow" fill="hsla(223,10%,50%,0.2)" rx="3.5" ry="3.5" x="10" y="121" width="60" height="7" />
+                </g>
+            </svg>
+
+            <div class="horizontal timeline">
+              <div class="steps">
+                <div class="step">
+                  <span>Confirmation</span>
+                </div>
+                <div class="step">
+                  <span>Order received</span>
+                </div>
+                <div class="step current">
+                  <span>In preparation</span>
+                </div>
+                <div class="step">
+                  <span>Shipped</span>
+                </div>
+                <div class="step">
+                  <span>Delivered</span>
+                </div>
+              </div>
+              <div class="line"></div>
+            </div>
+            
+            <!-- Cancel Button -->
+            <button id="cancelButton" class="btn-cancel" style="font-size: 18px; font-weight: 500px;">Cancel Order</button>
+            
+            <!-- Modal -->
+            <div id="cancelModal" class="modal hidden">
+              <div class="modal-overlay"></div>
+              <div class="modal-content1">
+                <span id="closeModal" class="close-btn">&times;</span>
+                <h3 style="margin-top: 10px; font-size: 25px;">Cancel Order</h3>
+                <p style="font-size: 22px; padding: 20px;" >Are you sure you want to cancel your order?</p>
+                <button id="confirmCancel" class="btn-confirm" style="margin-top: 20px ;">Yes, Cancel</button>
+                <button id="dismissCancel" class="btn-dismiss">No, Go Back</button>
+              </div>
+            </div>
+
+            
+
+            
+
+            
+        
+
+
+
+
+</body>
+</html>
+
+<script>
+function toggleSubnav() {
+    var subnav = document.getElementById("subnav");
+    // Toggle the visibility of the subnav
+    subnav.classList.toggle("show");
+}
+
+// Show content corresponding to the clicked subnav item
+function showContent(contentType) {
+    // Hide all content sections
+    var contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach(function(section) {
+        section.classList.remove('show');
+    });
+
+    // Show the selected content
+    var content = document.getElementById(contentType + '-content');
+    content.classList.add('show');
+}
+
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal__content");
+const close = document.querySelector(".modal__close");
+const modalImg = document.querySelector(".modal__img");
+const productList = document.querySelectorAll(".product__list");
+const title = document.querySelector(".detail__title");
+const cost = document.querySelector(".detail__price");
+
+const productCost = ["£395", "£245", "£195", "£295", "£345", "£455"];
+
+productList.forEach((list, index) => {
+  const view = list.querySelector(".product__viewBtn");
+  const productImg = list.querySelector(".product__img").getAttribute("src");
+
+  view.addEventListener("click", () => {
+    modal.classList.add("modal--bg");
+    modalContent.classList.add("modal__content--show");
+    modalImg.setAttribute("src", productImg);
+    title.innerText = `product title ${index + 1}`;
+    cost.innerText = productCost[index];
+  });
+});
+
+close.addEventListener("click", () => {
+  modal.classList.remove("modal--bg");
+  modalContent.classList.remove("modal__content--show");
+});
+
+modal.addEventListener("click", () => {
+  modal.classList.remove("modal--bg");
+  modalContent.classList.remove("modal__content--show");
+});
+
+
+
+</script>
+
+<script>
+  // Function to open modal
+  function openModal(imageSrc) {
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modal-image');
+    modalImage.src = imageSrc; // Set the modal image source
+    modal.classList.add('visible'); // Show the modal
+  }
+
+  // Function to close modal
+  function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.classList.remove('visible'); // Hide the modal
+  }
+
+</script>
+
+<script> document.addEventListener("DOMContentLoaded", () => {
+  // Select elements
+  const cancelButton = document.getElementById("cancelButton");
+  const cancelModal = document.getElementById("cancelModal");
+  const closeModal = document.getElementById("closeModal");
+  const confirmCancel = document.getElementById("confirmCancel");
+  const dismissCancel = document.getElementById("dismissCancel");
+
+  // Open modal when Cancel button is clicked
+  cancelButton.addEventListener("click", () => {
+    cancelModal.classList.add("visible");
+  });
+
+  // Close modal when the close button or dismiss button is clicked
+  closeModal.addEventListener("click", () => {
+    cancelModal.classList.remove("visible");
+  });
+
+  dismissCancel.addEventListener("click", () => {
+    cancelModal.classList.remove("visible");
+  });
+
+  // Confirm Cancel Logic
+  confirmCancel.addEventListener("click", () => {
+    alert("Your order has been canceled.");
+    cancelModal.classList.remove("visible");
+  });
+});</script>
